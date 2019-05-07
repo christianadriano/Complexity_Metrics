@@ -11,15 +11,18 @@ public class HalsteadMetrics {
 	/** 
 	 * List of Operators (Java keywords and operators)
 	 */
-	String[] operatorsList = {"if","else","for","while","{","}","case","Class",
-			"catch","try","finally","final","throws","throw","static","public","private","protected",
-			"=","+","-","?","!","%",">","<",":","/","\\","*",".","&","^","|","~",
-			"break","do","continue",
+	String[] operatorsList = {
+			"if","else","for","while","case","Class","switch",
+			"catch","try","finally","final","throws","throw","return",
+			"static","public","private","protected",
+			"break","do","continue","goto",
 			"instanceof","long","native","new","this","package","interface",
-			"return","short","super","strictfp","switch","synchronized",
-			"transient","volatile","void","goto","extends","implements",
-			"byte","assert","boolean","char","const","double","int","float",
+			"super","strictfp","synchronized",
+			"transient","volatile","void","extends","implements",
+			"byte","assert","boolean","char","const","double","int","float","short",
 			"enum"};
+	
+	String[] javaOperationsList = {"=","+","-","?","!","%",">","<",":","/","\\","*",".","&","^","|","~"};
 	
 	HashMap<String,Integer> operatorsHash;
 	
