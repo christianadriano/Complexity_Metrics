@@ -13,7 +13,7 @@ public class Main {
 	/** 
 	 * List of Operators (Java keywords and operators)
 	 */
-	String[] operatorsList = {
+	String[] keywordsList= {
 			"if","else","for","while","case","Class","switch",
 			"catch","try","finally","final","throws","throw","return",
 			"static","public","private","protected",
@@ -24,7 +24,7 @@ public class Main {
 			"byte","assert","boolean","char","const","double","int","float","short",
 			"enum"};
 	
-	String[] javaOperationsList = {"=","+","-","?","!","%",">","<",":","/","\\","*",".","&","^","|","~"};
+	String[] operatorsList = {"=","+","-","?","!","%",">","<",":","/","\\","*",".","&","^","|","~"};
 	
 	HashMap<String,Integer> operatorsHash;
 	
@@ -37,6 +37,9 @@ public class Main {
 		this.operatorsHash = new HashMap<String,Integer>();
 		for(String operator:operatorsList) {
 			this.operatorsHash.put(operator, new Integer(0));
+		}
+		for(String keyword:keywordsList) {
+			this.operatorsHash.put(keyword, new Integer(0));
 		}
 	}
 	
