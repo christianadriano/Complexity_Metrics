@@ -32,7 +32,7 @@ public class Main {
 	
 	String[] operatorsList = {"=","+","-","?","!","%",">","<","*","&","^","|","~"};
 	
-	String[] stopKeysList = {",",";",":","/","//","."};
+	String[] stopKeysList = {",",";",":","/","//",".","(",")","[","]","{","}"};
 
 	
 	HashMap<String,Integer> operatorsHash;
