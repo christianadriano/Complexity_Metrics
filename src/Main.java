@@ -3,10 +3,12 @@ import java.util.HashMap;
 /**
  * Computes Halstead metrics of 
  * 
+
+ * 
  * @author Chris Adriano
  *
  */
-public class HalsteadMetrics {
+public class Main {
 
 	/** 
 	 * List of Operators (Java keywords and operators)
@@ -28,11 +30,16 @@ public class HalsteadMetrics {
 	
 	HashMap<String,Integer> operandsHash;
 		
-	public HalsteadMetrics() {
+	/**  
+	 * Constructor initializes the data structure with operators
+	 */
+	public Main() {
 		this.operatorsHash = new HashMap<String,Integer>();
 		for(String operator:operatorsList) {
 			this.operatorsHash.put(operator, new Integer(0));
 		}
 	}
+	
+	
 	
 }
