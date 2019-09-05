@@ -62,6 +62,13 @@ public class Main {
 	}
 
 	
+	private String substituteStopWords(String line) {
+		for(String stopWord: this.stopKeysList) {
+			line = line.replace(stopWord, " ");
+		}
+		return line;
+	}
+	
 	private void load(String filePath) {
 		List<String> list_lines = this.readFileToList(filePath);
 		for(String line:list_lines) {
