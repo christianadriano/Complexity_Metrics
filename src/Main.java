@@ -50,6 +50,7 @@ public class Main {
 		for(String keyword:keywordsList) {
 			this.operatorsHash.put(keyword, new Integer(0));
 		}
+		this.operandsHash = new HashMap<String,Integer>();
 	}
 	
 	public List<String> readFileToList(String filePath) {
@@ -73,7 +74,8 @@ public class Main {
 		List<String> list_lines = this.readFileToList(filePath);
 		for(String line:list_lines) {
 			//tokenize it
-			String[] token_list = line.split("");
+			line = this.substituteStopWords(line);
+			String[] token_list = line.split(" ");
 			for(String token:token_list) {
 				if(this.operatorsHash.containsKey(token)) {
 					Integer value_obj = this.operatorsHash.get(token);
@@ -94,8 +96,18 @@ public class Main {
 		}
 	}
 	
+	private void print() {
+		
+		System.out.println(this.operandsHash.toString());
+		System.out.println(this.operatorsHash.toString());
+
+	}
+	
 	public static void main(String args[]) {
 		Main main = new Main();
 		main.load("C:\\Users\\Christian\\Documents\\GitHub\\Complexity_Metrics\\test\\translate2.java");
+		main.print();
 	}
+
+	
 }
