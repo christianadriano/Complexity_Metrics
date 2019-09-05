@@ -62,7 +62,7 @@ public class Main {
 	}
 
 	
-	private String substituteStopWords(String line) {
+	public String substituteStopWords(String line) {
 		for(String stopWord: this.stopKeysList) {
 			line = line.replace(stopWord, " ");
 		}
@@ -96,9 +96,6 @@ public class Main {
 	
 	public static void main(String args[]) {
 		Main main = new Main();
-		main.load("C:\\Users\\Christian\\Documents\\GitHub\\Complexity_Metrics\\test\\translate.java")
+		main.load("C:\\Users\\Christian\\Documents\\GitHub\\Complexity_Metrics\\test\\translate2.java");
 	}
-
-	
-	
 }
