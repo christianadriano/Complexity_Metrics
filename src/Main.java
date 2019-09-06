@@ -71,16 +71,31 @@ public class Main {
 		}
 	}
 
+	private String removeStringText(String line) {
+		int start = 0;
+		int end = 0;
+		while(start!=-1 & end!=-1) {
+			start = line.indexOf("\"");
+			if(start!=-1) {
+				end = line.indexOf("\"", start+1);
+				if(start!=-1 & end!=-1) {
+					String toRemove = line.substring(start,end);
+					line = line.replace(toRemove, " ");
+				}
+			}
+		}
+		return line;
+	}
 
 
-	public String isolateDoubleOperators(String line) {
+	private String isolateDoubleOperators(String line) {
 		for(String doubleOperator: this.doubleOperatorsList) {
 			line = line.replace(doubleOperator, " "+doubleOperator+" ");
 		}
 		return line;
 	}
 
-	public String substituteStopWords(String line) {
+	private String substituteStopWords(String line) {
 		for(String stopWord: this.stopKeysList) {
 			line = line.replace(stopWord, " ");
 		}
@@ -93,6 +108,7 @@ public class Main {
 			//tokenize it
 			line = this.substituteStopWords(line);
 			line = this.isolateDoubleOperators(line);
+			line = this.removeStringText(line);
 			
 			String[] token_list = line.split(" ");
 			for(String token:token_list) {
