@@ -62,7 +62,7 @@ public class Main {
 		this.operandsHash = new HashMap<String,Integer>();
 	}
 
-	public List<String> readFileToList(String filePath) {
+	private List<String> readFileToList(String filePath) {
 		try {
 			return(Files.readAllLines(Paths.get(filePath)));
 		}
