@@ -102,7 +102,8 @@ public class Main {
 		return line;
 	}
 
-	private void load(String filePath) {
+	/** Coordinator method. Runs all the functions  */
+	public void run(String filePath) {
 		List<String> list_lines = this.readFileToList(filePath);
 		for(String line:list_lines) {
 			//tokenize it
@@ -146,7 +147,7 @@ public class Main {
 
 	public static void main(String args[]) {
 		Main main = new Main();
-		main.load("C:\\Users\\Christian\\Documents\\GitHub\\Complexity_Metrics\\test\\translate2.java");
+		main.run("C:\\Users\\Christian\\Documents\\GitHub\\Complexity_Metrics\\test\\translate2.java");
 		main.print();
 	}
 
