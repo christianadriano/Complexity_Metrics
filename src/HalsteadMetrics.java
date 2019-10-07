@@ -15,7 +15,6 @@ public class HalsteadMetrics {
 	private double Effort=0;  
 	private double TimeReqProg=0;
 	private double TimeDelBugs=0;
-	private double lengthCharacters=0;
 	
 	
 	// Initialize the variables in the constructor 
