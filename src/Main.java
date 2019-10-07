@@ -137,18 +137,59 @@ public class Main {
 			}
 		}
 	}
+	
+	private Integer[] countItems(HashMap<String,Integer> itemsMap){
+		
+		int total=0;
+		int uniques=0;
+		Iterator<String> iter = itemsMap.keySet().iterator();
+		while(iter.hasNext()) {
+			String key = iter.next();
+			Integer value = itemsMap.get(key);
+			total = total + value;
+			if(value!=0) {
+				uniques++;
+			}
+		}
+		
+		Integer results[] = {total,uniques};
+		return results;
+	}
+	
+	private Double[] computeHalsteadMetrics() {
+		Integer results1[] =  countItems(this.singleOperatorsHash);
+		Integer results2[] =  countItems(this.doubleOperatorsHash);
+		int totalOperators = results1[0] + results2[0];
+		int distinctOperators = results1[1] + results2[1];
+
+		Integer results3[] =  countItems(this.operandsHash);
+		int totalOperands = results1[0] + results2[0];
+		int distinctOperands = results1[1] + results2[1];
+			
+		HalsteadMetrics metrics = new HalsteadMetrics();
+		metrics.setParameters(distinctOperators, distinctOperands, 
+								totalOperators, totalOperands);
+		
+		Double volume = new Double(metrics.getVolume());
+		Double length = new Double(metrics.getProglen());
+
+		Double lengthVolume[] = {length ,volume};
+		return lengthVolume;
+	}
 
 	private void print() {
 		System.out.println(this.operandsHash.toString());
 		System.out.println(this.singleOperatorsHash.toString());
 		System.out.println(this.doubleOperatorsHash.toString());
-
 	}
 
 	public static void main(String args[]) {
 		Main main = new Main();
 		main.run("C:\\Users\\Christian\\Documents\\GitHub\\Complexity_Metrics\\test\\translate2.java");
-		main.print();
+		Double lengthVolume[] = main.computeHalsteadMetrics();
+		System.out.println("Length="+lengthVolume[0].toString()+","+
+							"Volume="+lengthVolume[1].toString());
+		//main.print();
 	}
 
 
