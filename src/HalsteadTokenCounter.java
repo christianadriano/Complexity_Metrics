@@ -103,9 +103,9 @@ public class HalsteadTokenCounter implements MetricsCounter{
 	}
 
 	/** Coordinator method. Runs all the functions  */
-	public void prepare(String filePath) {
-		List<String> list_lines = this.readFileToList(filePath);
-		for(String line:list_lines) {
+	public void prepare(List<String> lineList) {
+		
+		for(String line:lineList) {
 			//tokenize it
 			line = this.substituteStopWords(line);
 			line = this.isolateDoubleOperators(line);
@@ -183,7 +183,7 @@ public class HalsteadTokenCounter implements MetricsCounter{
 		return lengthVolume;
 	}
 
-	private void print() {
+	public void print() {
 		System.out.println(this.operandsHash.toString());
 		System.out.println(this.singleOperatorsHash.toString());
 		System.out.println(this.doubleOperatorsHash.toString());
@@ -191,11 +191,13 @@ public class HalsteadTokenCounter implements MetricsCounter{
 	
 	public static void main(String args[]) {
 		HalsteadTokenCounter main = new HalsteadTokenCounter();
-		main.run("C:\\Users\\Christian\\Documents\\GitHub\\Complexity_Metrics\\test\\translate2.java");
+		String filePath = "C:\\Users\\Christian\\Documents\\GitHub\\Complexity_Metrics\\test\\translate2.java"; 
+		List<String> lineList = main.readFileToList(filePath);
+		main.prepare(lineList);
 		Double lengthVolume[] = main.compute();
 		System.out.println("Length="+lengthVolume[0].toString()+","+
 							"Volume="+lengthVolume[1].toString());
-		//main.print();
+		main.print();
 	}
 
 
