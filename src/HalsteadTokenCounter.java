@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 
 import java.util.*;
 
-public class Main {
+public class HalsteadTokenCounter {
 
 	/** 
 	 * List of Operators (Java keywords and operators)
@@ -45,7 +45,7 @@ public class Main {
 	/**  
 	 * Constructor initializes the data structure with operators
 	 */
-	public Main() {
+	public HalsteadTokenCounter() {
 		this.singleOperatorsHash = new HashMap<String,Integer>();
 		this.doubleOperatorsHash = new HashMap<String,Integer>();
 		this.stopKeyHash = new HashMap<String,Integer>();
@@ -184,7 +184,7 @@ public class Main {
 	}
 
 	public static void main(String args[]) {
-		Main main = new Main();
+		HalsteadTokenCounter main = new HalsteadTokenCounter();
 		main.run("C:\\Users\\Christian\\Documents\\GitHub\\Complexity_Metrics\\test\\translate2.java");
 		Double lengthVolume[] = main.computeHalsteadMetrics();
 		System.out.println("Length="+lengthVolume[0].toString()+","+
