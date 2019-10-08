@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 
 import java.util.*;
 
-public class HalsteadTokenCounter implements MetricsCounter{
+public class HalsteadComplexityCounter implements MetricsCounter{
 
 	/** 
 	 * List of Operators (Java keywords and operators)
@@ -45,7 +45,7 @@ public class HalsteadTokenCounter implements MetricsCounter{
 	/**  
 	 * Constructor initializes the data structure with operators
 	 */
-	public HalsteadTokenCounter() {
+	public HalsteadComplexityCounter() {
 		this.singleOperatorsHash = new HashMap<String,Integer>();
 		this.doubleOperatorsHash = new HashMap<String,Integer>();
 		this.stopKeyHash = new HashMap<String,Integer>();
@@ -190,7 +190,7 @@ public class HalsteadTokenCounter implements MetricsCounter{
 	} 
 	
 	public static void main(String args[]) {
-		HalsteadTokenCounter main = new HalsteadTokenCounter();
+		HalsteadComplexityCounter main = new HalsteadComplexityCounter();
 		String filePath = "C:\\Users\\Christian\\Documents\\GitHub\\Complexity_Metrics\\test\\translate2.java"; 
 		List<String> lineList = main.readFileToList(filePath);
 		main.prepare(lineList);
