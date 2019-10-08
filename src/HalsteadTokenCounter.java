@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 
 import java.util.*;
 
-public class HalsteadTokenCounter {
+public class HalsteadTokenCounter implements MetricsCounter{
 
 	/** 
 	 * List of Operators (Java keywords and operators)
@@ -103,7 +103,7 @@ public class HalsteadTokenCounter {
 	}
 
 	/** Coordinator method. Runs all the functions  */
-	public void run(String filePath) {
+	public void prepare(String filePath) {
 		List<String> list_lines = this.readFileToList(filePath);
 		for(String line:list_lines) {
 			//tokenize it
@@ -138,8 +138,11 @@ public class HalsteadTokenCounter {
 		}
 	}
 	
+	/**
+	 * @param itemsMap
+	 * @return the number of unique and total items in HashMap.
+	 */
 	private Integer[] countItems(HashMap<String,Integer> itemsMap){
-		
 		int total=0;
 		int uniques=0;
 		Iterator<String> iter = itemsMap.keySet().iterator();
@@ -156,7 +159,10 @@ public class HalsteadTokenCounter {
 		return results;
 	}
 	
-	private Double[] computeHalsteadMetrics() {
+	/**
+	 * @return Halstead length and volume metrics in the first and second positions respectively 
+	 */
+	public Double[] compute() {
 		Integer results1[] =  countItems(this.singleOperatorsHash);
 		Integer results2[] =  countItems(this.doubleOperatorsHash);
 		int totalOperators = results1[0] + results2[0];
@@ -181,12 +187,12 @@ public class HalsteadTokenCounter {
 		System.out.println(this.operandsHash.toString());
 		System.out.println(this.singleOperatorsHash.toString());
 		System.out.println(this.doubleOperatorsHash.toString());
-	}
-
+	} 
+	
 	public static void main(String args[]) {
 		HalsteadTokenCounter main = new HalsteadTokenCounter();
 		main.run("C:\\Users\\Christian\\Documents\\GitHub\\Complexity_Metrics\\test\\translate2.java");
-		Double lengthVolume[] = main.computeHalsteadMetrics();
+		Double lengthVolume[] = main.compute();
 		System.out.println("Length="+lengthVolume[0].toString()+","+
 							"Volume="+lengthVolume[1].toString());
 		//main.print();
