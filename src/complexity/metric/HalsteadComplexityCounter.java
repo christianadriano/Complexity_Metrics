@@ -42,6 +42,8 @@ public class HalsteadComplexityCounter implements MetricsCounter{
 	HashMap<String,Integer> singleOperatorsHash;
 	HashMap<String,Integer> stopKeyHash;
 	HashMap<String,Integer> operandsHash;
+	
+	HalsteadMetrics metrics;
 
 	/**  
 	 * Constructor initializes the data structure with operators
@@ -173,8 +175,8 @@ public class HalsteadComplexityCounter implements MetricsCounter{
 		int totalOperands = results3[0];
 		int distinctOperands = results3[1];
 			
-		HalsteadMetrics metrics = new HalsteadMetrics();
-		metrics.setParameters(distinctOperators, distinctOperands, 
+		this.metrics = new HalsteadMetrics();
+		this.metrics.setParameters(distinctOperators, distinctOperands, 
 								totalOperators, totalOperands);
 		
 		Double volume = new Double(metrics.getVolume());
@@ -185,9 +187,15 @@ public class HalsteadComplexityCounter implements MetricsCounter{
 	}
 
 	public void print() {
-		System.out.println(this.operandsHash.toString());
-		System.out.println(this.singleOperatorsHash.toString());
-		System.out.println(this.doubleOperatorsHash.toString());
+		System.out.println("Operands: "+ this.operandsHash.toString());
+		System.out.println("Distinct operands: "+this.metrics.DistOperands);
+		System.out.println("Total operands: "+this.metrics.TotOperands);
+		System.out.println("-----------------");
+
+		System.out.println("Single operators: "+this.singleOperatorsHash.toString());
+		System.out.println("Double operators: "+this.doubleOperatorsHash.toString());		
+		System.out.println("Distinct operators: "+this.metrics.DistOperators);
+		System.out.println("Total operators: "+this.metrics.TotOperators);
 	} 
 	
 	public static void main(String args[]) {
