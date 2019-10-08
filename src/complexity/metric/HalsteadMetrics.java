@@ -55,7 +55,7 @@ public class HalsteadMetrics {
 	public int getProglen()
 	{
 		Proglen=TotOperators+TotOperands;
-		System.out.println("Program Length= "+ Proglen);
+		//System.out.println("Program Length= "+ Proglen);
 		return Proglen;
 	}
 	
@@ -75,7 +75,7 @@ public class HalsteadMetrics {
 	public double getVolume()
 	{
 		Volume=(TotOperators+TotOperands)*(Math.log(DistOperators+DistOperands)/Math.log(2));
-		System.out.println("Volume= "+ Volume);
+		//System.out.println("Volume= "+ Volume);
 		return Volume;
 	}
 	
