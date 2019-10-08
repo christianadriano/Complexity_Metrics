@@ -1,11 +1,19 @@
+import java.util.List;
 
+/**
+ * Interface to expose the metric calculation of clients
+ * 
+ * @author Christian Adriano
+ *
+ */
 public interface MetricsCounter {
-
+	
 	/**
 	 * Necessary pre-processing to count metrics. This method affects the internal
 	 * state of the concrete class.
+	 * @param the list of source code lines that will be processed
 	 */
-	public void prepare();
+	public void prepare(List<String> lineList);
 	
 	/** 
 	 * 
