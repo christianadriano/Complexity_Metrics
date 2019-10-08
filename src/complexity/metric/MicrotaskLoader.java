@@ -1,3 +1,5 @@
+package complexity.metric;
+
 import java.util.HashMap;
 
 /**

@@ -1,3 +1,5 @@
+package complexity.metric;
+
 import java.util.HashMap;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -169,8 +171,8 @@ public class HalsteadComplexityCounter implements MetricsCounter{
 		int distinctOperators = results1[1] + results2[1];
 
 		Integer results3[] =  countItems(this.operandsHash);
-		int totalOperands = results1[0] + results2[0];
-		int distinctOperands = results1[1] + results2[1];
+		int totalOperands = results3[0];
+		int distinctOperands = results3[1];
 			
 		HalsteadMetrics metrics = new HalsteadMetrics();
 		metrics.setParameters(distinctOperators, distinctOperands, 
