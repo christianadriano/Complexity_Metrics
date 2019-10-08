@@ -1,3 +1,4 @@
+import java.util.HashMap;
 
 /**
  * Load microtasks from a csv file and source code files
@@ -9,7 +10,14 @@
  */
 public class MicrotaskLoader {
 
+	HashMap<String,MicrotaskComplexity> microtaskComplexityMap;
 	
+	
+	
+	public  HashMap<String,MicrotaskComplexity> loadMicrotasks(String sourceCodeFilePath, String csvFilePath) {
+		this.microtaskComplexityMap = new HashMap<String,MicrotaskComplexity>();
+		return null;
+	}
 	
 	
 }

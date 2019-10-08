@@ -16,6 +16,7 @@ public class MicrotaskComplexity {
 	
 	HalsteadMetrics metrics=null;
 	
+	String programStatementType="";
 	
 	
 }
