@@ -21,4 +21,9 @@ public interface MetricsCounter {
 	 */
 	public Double[] compute();
 	
+	
+	/**
+	 * Prints the rationale of the metric values, for instance, the number of items that were counted
+	 */
+	public void print();
 }
