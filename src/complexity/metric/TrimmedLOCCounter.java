@@ -5,6 +5,11 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Counts source code lines except for comments, empty lines, and lines with a single curly bracket
+ * @author Christian Adriano
+ *
+ */
 public class TrimmedLOCCounter implements MetricsCounter {
 
 	private List<String> lineList;
